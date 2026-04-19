@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9th CMAS Asia Under Water Hockey Cup</title>
+    <meta name="description" content="Information for the 9th CMAS Asia Under Water Hockey Cup in Bogor, Indonesia.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="lang-ja locked">
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-box glass">
+            <h2 style="border:none; margin-bottom: 1rem;">
+                <span class="en" style="color: white;">Enter Password</span>
+                <span class="ja" style="color: white;">パスワードを入力</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem;">
+                <span class="en">This page is restricted to team members.</span>
+                <span class="ja">チーム限定の共有ページです。</span>
+            </p>
+            <input type="password" id="password-input" placeholder="Password" />
+            <p id="password-error" style="color: #ff4b4b; display: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                <span class="en">Incorrect password.</span>
+                <span class="ja">パスワードが間違っています。</span>
+            </p>
+            <button id="btn-unlock" class="btn-primary" style="margin-top: 1.5rem; width: 100%; border: none;">
+                <span class="en">Unlock</span>
+                <span class="ja">ロック解除</span>
+            </button>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <span class="en">AUWHC 2026</span>
+            <span class="ja">AUWHC 2026</span>
+        </div>
+        <div class="lang-switch">
+            <button id="btn-ja" class="active">日本語</button>
+            <button id="btn-en">EN</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="glow-text">
+                <span class="en">9th CMAS Asia<br>Under Water Hockey Cup</span>
+                <span class="ja">第9回 CMAS アジア<br>水中ホッケーカップ</span>
+            </h1>
+            <p class="subtitle">
+                <span class="en">August 5 - 8, 2026 • Bogor, Indonesia</span>
+                <span class="ja">2026年8月5日〜8日 • インドネシア・ボゴール</span>
+            </p>
+            <a href="Invitation%20Letter%20%26%20Info%20pack%20.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span class="en">Info pack (PDF)</span>
+                <span class="ja">Info pack (PDF)</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="details">
+        <!-- Overview -->
+        <section class="card glass">
+            <h2>
+                <span class="en">Event Overview</span>
+                <span class="ja">大会概要</span>
+            </h2>
+            <div class="grid-2">
+                <div class="info-item">
+                    <h3><span class="en">Dates</span><span class="ja">日程</span></h3>
+                    <p><span class="en">August 5th - 8th, 2026</span><span class="ja">2026年8月5日(水) 〜 8日(土)</span></p>
+                </div>
+                <div class="info-item">
+                    <h3><span class="en">Location</span><span class="ja">場所</span></h3>
+                    <p>
+                        <span class="en"><a href="https://www.google.com/maps/search/?api=1&query=Hotel+Seruni+Bogor+Indonesia" target="_blank" rel="noopener noreferrer" style="color: var(--primary-cyan); text-decoration: underline;">Hotel Seruni (Bogor, Indonesia)</a></span>
+                        <span class="ja"><a href="https://www.google.com/maps/search/?api=1&query=Hotel+Seruni+Bogor+Indonesia" target="_blank" rel="noopener noreferrer" style="color: var(--primary-cyan); text-decoration: underline;">Hotel Seruni (インドネシア・ボゴール)</a></span>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <h3><span class="en">Facility</span><span class="ja">プール設備</span></h3>
+                    <p>
+                        <span class="en">Olympic pool 50m x 25m. Competition area is 3m depth. 5m dive pool available for warm-ups.</span>
+                        <span class="ja">50m×25mのオリンピックプール（競技エリア水深3m）。ウォーミングアップ用の5mプールあり。</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="card glass">
+            <h2>
+                <span class="en">Categories</span>
+                <span class="ja">出場カテゴリー</span>
+            </h2>
+            <ul class="category-list">
+                <li class="highlight-cat">
+                    <div class="cat-title">
+                        Elite (Men / Women)
+                        <span class="en badge-jp">🇯🇵 Japan Team Category</span>
+                        <span class="ja badge-jp">🇯🇵 日本チーム出場枠</span>
+                    </div>
+                    <p>
+                        <span class="en">Max 1 team per country. Minimum age: 18 years old by Aug 4, 2026.</span>
+                        <span class="ja">各国1チームまで。2026年8月4日時点で18歳以上。</span>
+                    </p>
+                </li>
+                <li>
+                    <div class="cat-title">Masters (Men / Women)</div>
+                    <p>
+                        <span class="en">Minimum age: 35 years old. Multiple teams per country allowed (subject to limits).</span>
+                        <span class="ja">35歳以上対象。複数チーム出場の可能性あり（制限の場合あり）。</span>
+                    </p>
+                </li>
+                <li>
+                    <div class="cat-title">U19 Open & U15 Open</div>
+                    <p>
+                        <span class="en">Focus on grassroot development. <strong>At least 1 female player must participate at all times.</strong></span>
+                        <span class="ja">発展目的のため、<strong>常に最低1名の女性プレーヤーが試合に参加していること</strong>が条件です。</span>
+                    </p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Fees -->
+        <section class="card glass">
+            <h2>
+                <span class="en">Entry Fees</span>
+                <span class="ja">参加費・期限</span>
+            </h2>
+            <div class="grid-2">
+                <div class="fee-box">
+                    <h3>Elite & Masters</h3>
+                    <div class="price">EUR 2,500<span class="ja" style="font-size:1.2rem;"><br><small>(約46.8万円)</small></span> <small>/ team</small></div>
+                    <p>
+                        <span class="en">Deposit: EUR 1,000</span>
+                        <span class="ja">デポジット: EUR 1,000 <small>(約18.7万円)</small></span>
+                    </p>
+                </div>
+                <div class="fee-box">
+                    <h3>U19 & U15 Open</h3>
+                    <div class="price">EUR 1,500<span class="ja" style="font-size:1.2rem;"><br><small>(約28.1万円)</small></span> <small>/ team</small></div>
+                    <p>
+                        <span class="en">Deposit: EUR 500</span>
+                        <span class="ja">デポジット: EUR 500 <small>(約9.4万円)</small></span>
+                    </p>
+                </div>
+            </div>
+            <p class="deadline-note">
+                <span class="en"><strong>Deadline:</strong> June 15, 2026. Late entry (until July 1st) incurs a EUR 200 fee. Includes returns transport from CGK airport and access to Closing Party.</span>
+                <span class="ja"><strong>期限:</strong> 2026年6月15日 (6/16〜7/1はレイトエントリーとなりEUR 200 <small>(約3.7万円)</small>追加)。参加費には空港からの往復送迎とクロージングパーティの権利が含まれます。<br><small style="opacity:0.7; display:block; margin-top:0.5rem;">※日本円の目安は1 EUR=約187円、1 IDR=約0.0093円として計算しています。</small></span>
+            </p>
+        </section>
+
+        <!-- Logistics -->
+        <section class="card glass">
+            <h2>
+                <span class="en">Travel & Accommodation</span>
+                <span class="ja">交通・宿泊手配</span>
+            </h2>
+            <div class="logistics-content">
+                <h3>
+                    <span class="en">Japan Team Flight Schedule</span>
+                    <span class="ja">🇯🇵 日本代表チーム フライト予定</span>
+                </h3>
+                <div style="background: rgba(0, 229, 255, 0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-cyan); margin-bottom: 2rem;">
+                    <p style="margin-bottom: 0.5rem;">
+                        <span class="en"><strong>Outbound (HND → CGK):</strong> Aug 3, 10:15 Departure → 16:00 Arrival (Flight time: ~7h 45m)</span>
+                        <span class="ja"><strong>往路：</strong> 8月3日 10:15発 → <strong>16:00 現地着</strong> <span style="opacity: 0.8; font-size: 0.9em;">(フライト時間: 約7時間45分)</span></span>
+                    </p>
+                    <p style="margin: 0;">
+                        <span class="en"><strong>Return (CGK → HND):</strong> Aug 9, 21:25 Departure → Aug 10, 06:50 Arrival (Flight time: ~7h 25m)</span>
+                        <span class="ja"><strong>復路：</strong> 8月9日 21:25発 → <strong>翌 06:50 日本着</strong> <span style="opacity: 0.8; font-size: 0.9em;">(フライト時間: 約7時間25分)</span></span>
+                    </p>
+                </div>
+
+                <h3><span class="en">Airport Transfer</span><span class="ja">空港アクセス</span></h3>
+                <p>
+                    <span class="en">Nearest airport is Jakarta Soekarno-Hatta (CGK). ~101 km (2 hours bus ride). Pick-ups scheduled for Aug 2-3 at 10:00, 15:00, 19:00.</span>
+                    <span class="ja">最寄り空港：ジャカルタ・スカルノハッタ (CGK)。会場まで約101km（専用バスで約2時間）。8月2日〜3日の 10:00, 15:00, 19:00 に送迎バスあり。</span>
+                </p>
+
+                <h3><span class="en">Hotel Seruni Package</span><span class="ja">宿泊 (Hotel Seruni パッケージ)</span></h3>
+                <p>
+                    <span class="en">Accommodation is at the pool facility. Packages include all meals (3 meals + 2 snacks). Prices per person/night:</span>
+                    <span class="ja">大会中はプール併設のホテル泊。食事（3食＋スナック2回）込みのパッケージです。1名1泊あたりの料金：</span>
+                </p>
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th><span class="en">Room Type</span><span class="ja">部屋タイプ</span></th>
+                            <th><span class="en">Weekday</span><span class="ja">平日料金</span></th>
+                            <th><span class="en">Weekend</span><span class="ja">休日料金</span></th>
+                        </tr>
+                        <tr>
+                            <td><span class="en">Twin</span><span class="ja">ツイン</span></td>
+                            <td>IDR 850,000 <span class="ja"><small><br>(約7,900円)</small></span></td>
+                            <td>IDR 1,000,000 <span class="ja"><small><br>(約9,300円)</small></span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="en">Triple</span><span class="ja">トリプル</span></td>
+                            <td>IDR 750,000 <span class="ja"><small><br>(約7,000円)</small></span></td>
+                            <td>IDR 900,000 <span class="ja"><small><br>(約8,400円)</small></span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action List -->
+        <section class="card glass">
+            <h2>
+                <span class="en">Action List</span>
+                <span class="ja">大会に向けたアクションリスト</span>
+            </h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th><span class="en">Task</span><span class="ja">タスク</span></th>
+                            <th><span class="en">Assignee</span><span class="ja">担当</span></th>
+                            <th><span class="en">Deadline</span><span class="ja">期限</span></th>
+                            <th><span class="en">Progress</span><span class="ja">進捗</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><span class="en">Player Selection</span><span class="ja">選手の選出</span></td>
+                            <td><span class="en">Competition Committee</span><span class="ja">競技部会</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                            <td><span class="status-doing"><span class="en">In Progress</span><span class="ja">進行中</span></span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><span class="en">Registration to JUSF</span><span class="ja">JUSFへ登録</span></td>
+                            <td><span class="en">Each Team</span><span class="ja">各チーム</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><span class="en">CMAS Registration</span><span class="ja">CMAS登録</span></td>
+                            <td><span class="en">Dispatch Committee (via USF)</span><span class="ja">水中スポーツ連盟に依頼（派遣部会）</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><span class="en">Flight Arrangements</span><span class="ja">航空券手配</span></td>
+                            <td><span class="en">Dispatch Committee (via USF)</span><span class="ja">水中スポーツ連盟に依頼（派遣部会）</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><span class="en">Hotel Arrangements</span><span class="ja">ホテルの手配</span></td>
+                            <td><span class="en">Dispatch Committee</span><span class="ja">派遣部会</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><span class="en">Uniform Order</span><span class="ja">ユニホーム注文</span></td>
+                            <td><span class="en">Dispatch Committee</span><span class="ja">派遣部会</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><span class="en">Swimwear Order</span><span class="ja">水着の発注</span></td>
+                            <td><span class="en">Dispatch Committee</span><span class="ja">派遣部会</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><span class="en">Water Polo Cap Order</span><span class="ja">水球帽の発注</span></td>
+                            <td><span class="en">Dispatch Committee</span><span class="ja">派遣部会</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                            <td><span class="status-doing"><span class="en">In Progress</span><span class="ja">進行中</span></span></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td><span class="en">Event Entry</span><span class="ja">大会エントリー</span></td>
+                            <td><span class="en">Dispatch Committee</span><span class="ja">派遣委員会</span></td>
+                            <td><span class="en">Jun 15</span><span class="ja">6/15</span></td>
+                            <td><span class="status-tbd">TBD</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <span class="en">Built with passion for Underwater Hockey</span>
+            <span class="ja">水中ホッケーへの情熱を持って作られました</span>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
