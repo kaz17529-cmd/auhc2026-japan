@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Order Page</title>
+    <meta name="description" content="Order page for the 9th CMAS Asia Under Water Hockey Cup Japan Team.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="lang-ja locked">
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-box glass">
+            <h2 style="border:none; margin-bottom: 1rem;">
+                <span class="en" style="color: white;">Enter Password</span>
+                <span class="ja" style="color: white;">パスワードを入力</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem;">
+                <span class="en">This page is restricted to team members.</span>
+                <span class="ja">チーム限定の共有ページです。</span>
+            </p>
+            <input type="password" id="password-input" placeholder="Password" />
+            <p id="password-error" style="color: #ff4b4b; display: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                <span class="en">Incorrect password.</span>
+                <span class="ja">パスワードが間違っています。</span>
+            </p>
+            <button id="btn-unlock" class="btn-primary" style="margin-top: 1.5rem; width: 100%; border: none;">
+                <span class="en">Unlock</span>
+                <span class="ja">ロック解除</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <span class="en">Team Orders</span>
+            <span class="ja">チーム注文ページ</span>
+        </div>
+        <div style="margin-left: auto; margin-right: 1.5rem;">
+            <a href="index.html" class="nav-btn" style="color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+                <span class="en">← Back to Main</span>
+                <span class="ja">← メインページに戻る</span>
+            </a>
+        </div>
+        <div class="lang-switch">
+            <button id="btn-ja" class="active">日本語</button>
+            <button id="btn-en">EN</button>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 180px; padding-bottom: 60px;">
+        <section class="card glass">
+            <h2>
+                <span class="en">Official Team Wear & Swimwear Order</span>
+                <span class="ja">公式ウェア・水着の注文情報</span>
+            </h2>
+            <div style="background: rgba(0, 229, 255, 0.05); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-cyan); margin-bottom: 2rem;">
+                <p style="margin: 0;">
+                    <span class="en">Please check the designs and prices below. An order form will be prepared soon.</span>
+                    <span class="ja">下記のデザインと価格表をご確認ください。（※後日、個数やサイズを入力するフォームを追加する予定です）</span>
+                </p>
+            </div>
+            
+            <div style="text-align: center; border-radius: 12px; overflow: hidden; background: white; padding: 1rem;">
+                <img src="wear_info.jpg" alt="Wear Information" style="width: 100%; height: auto; display: block; margin: 0 auto;">
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">
+        &copy; 2026 Japan Underwater Hockey Team. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
