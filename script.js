@@ -84,4 +84,58 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
+
+    // --- Image Modal Logic ---
+    const imageModal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalCaption = document.getElementById('modal-caption');
+    const modalClose = document.querySelector('.modal-close');
+    const zoomableImages = document.querySelectorAll('.zoomable-img');
+
+    if (imageModal && modalImg) {
+        zoomableImages.forEach(img => {
+            img.addEventListener('click', () => {
+                imageModal.style.display = 'block';
+                // Trigger class after display change to enable transition
+                setTimeout(() => {
+                    imageModal.classList.add('show');
+                }, 10);
+                modalImg.src = img.src; // Keep full src including parameters
+                if (modalCaption) {
+                    modalCaption.textContent = img.alt || "Wear Information Detail";
+                }
+                body.classList.add('locked'); // Prevent background scrolling
+            });
+        });
+
+        const closeModal = () => {
+            imageModal.classList.remove('show');
+            setTimeout(() => {
+                imageModal.style.display = 'none';
+            }, 300); // Wait for transition to complete
+            // Do not unlock page if password overlay is active
+            const isPasswordActive = passwordOverlay && !passwordOverlay.classList.contains('hidden');
+            if (!isPasswordActive) {
+                body.classList.remove('locked');
+            }
+        };
+
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+
+        imageModal.addEventListener('click', (e) => {
+            // Close only if clicking the background, not the image itself
+            if (e.target === imageModal || e.target.classList.contains('modal-close')) {
+                closeModal();
+            }
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imageModal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+    }
 });

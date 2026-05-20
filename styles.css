@@ -482,3 +482,138 @@ body.locked .navbar, body.locked main, body.locked footer, body.locked header {
     border-color: var(--primary-cyan);
     box-shadow: 0 0 10px rgba(0, 229, 255, 0.4);
 }
+
+/* --- Image Zoom Modal --- */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 11, 24, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.image-modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 40px;
+    right: 45px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+    z-index: 100000;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--primary-cyan);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: var(--text-muted);
+    padding: 1.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Zoom animation for images on hover */
+.zoomable-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zoomable-img:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* PDF Button responsive & styling enhancements */
+.btn-pdf {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-pdf::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: 0.75s;
+    opacity: 0;
+}
+
+.btn-pdf:hover::after {
+    left: 125%;
+    opacity: 1;
+}
+
+/* Table optimization for Mobile & Prices */
+.price-cell {
+    text-align: right;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .image-modal {
+        padding-top: 80px;
+    }
+    .modal-content {
+        max-width: 95%;
+        max-height: 75vh;
+    }
+    .modal-close {
+        top: 20px;
+        right: 25px;
+        font-size: 35px;
+    }
+    #modal-caption {
+        font-size: 0.9rem;
+    }
+    .btn-pdf {
+        width: 100%;
+        justify-content: center;
+        padding: 1.2rem 1.5rem !important;
+    }
+}
