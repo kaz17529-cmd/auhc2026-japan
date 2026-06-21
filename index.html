@@ -402,24 +402,19 @@
         </section>
 
         <!-- Action List -->
-        <!-- Action List (Embedded) -->
         <section class="card glass">
             <h2>
                 <span class="en">Action List</span>
                 <span class="ja">大会に向けたアクションリスト</span>
             </h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                <span class="en">This list is managed in Google Sheets. You can view the live progress below.</span>
-                <span class="ja">このリストはGoogleスプレッドシートで管理されています。進捗状況は自動でリアルタイムに反映されます。</span>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                <span class="en">This list is managed in Google Sheets. You can view and edit the live progress via the link below.</span>
+                <span class="ja">このリストはGoogleスプレッドシートで管理されています。最新の進捗状況は、以下のリンクよりご確認・編集いただけます。</span>
             </p>
-            <div style="margin-bottom: 1.5rem; text-align: left;">
-                <a href="https://docs.google.com/spreadsheets/d/1inWvbFD79IDTRerIFc61JtA_dfR0AgKyduTFteWbWHw/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.95rem; padding: 0.75rem 2rem; display: inline-flex; align-items: center; gap: 0.5rem; text-transform: none;">
-                    📝 <span class="en">Edit Action List (Spreadsheet)</span><span class="ja">アクションリストを編集する</span>
+            <div style="text-align: center;">
+                <a href="https://docs.google.com/spreadsheets/d/1inWvbFD79IDTRerIFc61JtA_dfR0AgKyduTFteWbWHw/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1.05rem; padding: 1rem 3rem; display: inline-flex; align-items: center; gap: 0.5rem; text-transform: none;">
+                    📝 <span class="en">View & Edit Action List (Google Sheets)</span><span class="ja">アクションリストを表示・編集する</span>
                 </a>
-            </div>
-            <div class="table-container" style="height: 550px; border-radius: 8px; overflow: hidden; border: 1px solid var(--glass-border); background: #000c1d; position: relative;">
-                <!-- Googleスプレッドシートの埋め込み iframe -->
-                <iframe id="action-list-iframe" src="https://docs.google.com/spreadsheets/d/1inWvbFD79IDTRerIFc61JtA_dfR0AgKyduTFteWbWHw/htmlview" style="width: 100%; height: 100%; border: none;"></iframe>
             </div>
         </section>
     </main>

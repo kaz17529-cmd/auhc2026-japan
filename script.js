@@ -139,11 +139,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Refresh Google Sheet iframe with timestamp to prevent caching
-    const actionIframe = document.getElementById('action-list-iframe');
-    if (actionIframe) {
-        const baseSrc = actionIframe.src;
-        const separator = baseSrc.includes('?') ? '&' : '?';
-        actionIframe.src = `${baseSrc}${separator}t=${new Date().getTime()}`;
-    }
 });
