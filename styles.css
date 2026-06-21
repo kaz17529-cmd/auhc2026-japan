@@ -376,6 +376,14 @@ tr:hover td {
     letter-spacing: 1px;
 }
 
+.line-completed td {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+.line-completed td strong {
+    color: inherit;
+}
+
 footer {
     text-align: center;
     padding: 3rem 0;

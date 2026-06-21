@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Doping Training - Japan Team</title>
+    <meta name="description" content="Anti-Doping training details for the 9th CMAS Asia Under Water Hockey Cup Japan Team.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="lang-ja locked">
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-box glass">
+            <h2 style="border:none; margin-bottom: 1rem;">
+                <span class="en" style="color: white;">Enter Password</span>
+                <span class="ja" style="color: white;">パスワードを入力</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem;">
+                <span class="en">This page is restricted to team members.</span>
+                <span class="ja">チーム限定の共有ページです。</span>
+            </p>
+            <input type="password" id="password-input" placeholder="Password" />
+            <p id="password-error" style="color: #ff4b4b; display: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                <span class="en">Incorrect password.</span>
+                <span class="ja">パスワードが間違っています。</span>
+            </p>
+            <button id="btn-unlock" class="btn-primary" style="margin-top: 1.5rem; width: 100%; border: none;">
+                <span class="en">Unlock</span>
+                <span class="ja">ロック解除</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <span class="en">Anti-Doping</span>
+            <span class="ja">アンチドーピング</span>
+        </div>
+        <div style="margin-left: auto; margin-right: 1.5rem;">
+            <a href="index.html" class="nav-btn" style="color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+                <span class="en">← Back to Main</span>
+                <span class="ja">← メインページに戻る</span>
+            </a>
+        </div>
+        <div class="lang-switch">
+            <button id="btn-ja" class="active">日本語</button>
+            <button id="btn-en">EN</button>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 180px; padding-bottom: 60px;">
+        <!-- Alert Box -->
+        <section class="card glass" style="border-color: rgba(255, 152, 0, 0.4); background: rgba(255, 152, 0, 0.05); margin-bottom: 2.5rem;">
+            <h2 style="color: #ff9800; border-bottom-color: rgba(255, 152, 0, 0.2);">
+                <span class="en">⚠️ Accidental Doping Prevention Notice</span>
+                <span class="ja">⚠️ うっかりドーピング防止の徹底について</span>
+            </h2>
+            <div style="font-size: 0.95rem; line-height: 1.7;">
+                <p style="margin-bottom: 1rem;">
+                    <span class="en">Even in sports close to us like swimming, "accidental" anti-doping violations have occurred due to medicines, supplements, foods, and drinks.</span>
+                    <span class="ja">水泳など身近なスポーツにおいても、医薬品・サプリメント・飲食物等による「うっかり」のアンチ・ドーピング違反事例が発生しています。</span>
+                </p>
+                <p style="margin-bottom: 1rem;">
+                    <span class="en">Please be extremely careful about what you consume (drinks, food, supplements, medicine, etc.) during the competition period and during your stay in Indonesia.</span>
+                    <span class="ja">大会期間中および現地滞在中は、現地での飲み物・食品・サプリメント・医薬品等の摂取に十分注意してください。</span>
+                </p>
+                <p style="margin-bottom: 0;">
+                    <span class="en">Specifically, sharing drinks, and food/supplements received from other athletes, local athletes, or staff, should be avoided as ingredients and management status cannot be confirmed. Please do not consume anything uncertain and make sure to check beforehand.</span>
+                    <span class="ja">特に、飲み物の回し飲み、他の選手・現地選手・関係者からもらった飲食物やサプリメント等については、成分や管理状況が確認できない場合があります。不明なものは安易に口にせず、必ず事前に確認するようお願いいたします。</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- Step 1 Video -->
+        <section class="card glass" style="margin-bottom: 2.5rem;">
+            <h2>
+                <span class="en">1. Watch the Anti-Doping Video</span>
+                <span class="ja">１．アンチ・ドーピング講習動画の視聴</span>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+                <span class="en">* This video is unlisted (limited to those with the URL). Please do not share it outside the team.</span>
+                <span class="ja">※動画はURLを知っている方への限定公開です。日本代表チーム外へ共有を行わないでください。</span>
+            </p>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <span class="en">* The QR code feedback survey shown at the end of the video is for live attendees, so no response is required.</span>
+                <span class="ja">※動画の最後に出てくるアンケート用のQRコードは、オンタイム受講者用ですので回答不要です。</span>
+            </p>
+
+            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; border: 1px solid var(--glass-border); background: #000;">
+                <iframe src="https://www.youtube.com/embed/EJ0rSrvwLAQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen></iframe>
+            </div>
+            
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <a href="https://youtu.be/EJ0rSrvwLAQ" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.95rem; padding: 0.75rem 2rem; background: linear-gradient(135deg, #ff4b4b, #ff8b8b); color: white; border: none; box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3); text-transform: none;">
+                    <span class="en">📺 Open Video in YouTube app</span>
+                    <span class="ja">📺 YouTubeアプリで動画を開く</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Step 2 ADLE -->
+        <section class="card glass" style="margin-bottom: 2.5rem;">
+            <h2>
+                <span class="en">2. Complete ADLE and Get Certificate</span>
+                <span class="ja">２．ADLEの受講・受講証明書の取得</span>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <span class="en">Please complete the ADLE course using the link below to get your certificate.</span>
+                <span class="ja">下記リンクより「ADLE」に登録して受講し、受講証明書（証明ファイル・画像）を取得してください。</span>
+            </p>
+
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary-cyan); margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem;">
+                <div>
+                    <strong><span class="en">Registration Name:</span><span class="ja">登録名：</span></strong>
+                    <span class="en">Must be written in Alphabet/Romaji (e.g. Taro Yamada)</span>
+                    <span class="ja">ローマ字（半角英字）で必ずご登録ください。（例：Taro Yamada）</span>
+                </div>
+                <div>
+                    <strong><span class="en">Target Sport:</span><span class="ja">対象スポーツ：</span></strong>
+                    <span>Under water sports</span>
+                </div>
+                <div>
+                    <strong><span class="en">Course Validity:</span><span class="ja">有効期限：</span></strong>
+                    <span class="en">Although valid for 2 years, since the banned substance list is updated annually, all athletes must take the course and submit the certificate every year.</span>
+                    <span class="ja">受講証明書の有効期限は2年間ですが、ルール等の改定があるため、代表選手は毎年受講・提出する必要があります。</span>
+                </div>
+                <div>
+                    <strong><span class="en">Re-taking Course:</span><span class="ja">再発行について：</span></strong>
+                    <span class="en">If 2 years have not passed since your last issuance, you might not be able to issue it successfully. If this happens, please recreate a new account and retake the course.</span>
+                    <span class="ja">前回発行から2年未満の場合、証明書がうまく発行できないことがあります。その場合はお手数ですが、別のアカウントを新規作成し直して受講してください。</span>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://www.realchampion.jp/resources/000169.html" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.95rem; padding: 0.8rem 2.5rem; display: inline-flex; align-items: center; gap: 0.5rem; text-transform: none;">
+                    <span class="en">✏️ Open ADLE Course Site</span>
+                    <span class="ja">✏️ ADLE受講サイトを開く</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Step 3 Submission -->
+        <section class="card glass">
+            <h2>
+                <span class="en">3. Email the Certificate</span>
+                <span class="ja">３．受講証明書をメールで送付</span>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                <span class="en">Send your obtained ADEL certificate to the Japan Subaquatic Sports Federation (JUSF) by email.</span>
+                <span class="ja">取得した「ADEL受講証明書」を添付し、以下の宛先へメールにて送信してください。</span>
+            </p>
+
+            <div style="background: rgba(255, 75, 75, 0.08); border: 1px solid rgba(255, 75, 75, 0.3); padding: 0.75rem 1.2rem; border-radius: 8px; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; color: #ff8b8b; font-weight: 700; font-size: 0.95rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>
+                    <span class="en">Deadline: June 24, 2026 (Wed)</span>
+                    <span class="ja">提出期限：2026年6月24日 (水) まで</span>
+                </span>
+            </div>
+
+            <div class="table-container" style="margin-bottom: 2rem;">
+                <table style="width: 100%;">
+                    <tr>
+                        <th style="width: 30%;"><span class="en">Item</span><span class="ja">項目</span></th>
+                        <th><span class="en">Content</span><span class="ja">送信内容</span></th>
+                    </tr>
+                    <tr>
+                        <td><strong><span class="en">Send To</span><span class="ja">送付先アドレス</span></strong></td>
+                        <td style="font-family: monospace; font-size: 1.1rem; color: var(--primary-cyan);">info@jusf.gr.jp</td>
+                    </tr>
+                    <tr>
+                        <td><strong><span class="en">Subject</span><span class="ja">メール件名</span></strong></td>
+                        <td style="font-size: 0.95rem;">
+                            <code>ADEL受講証明書・水中ホッケー・〇〇</code>
+                            <br><small style="color: var(--text-muted);">（※「〇〇」をご自身の氏名に書き換えてください）</small>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="mailto:info@jusf.gr.jp?subject=ADEL%E5%8F%97%E8%AC%9B%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%83%BB%E6%B0%B4%E4%B8%AD%E3%83%9B%E3%83%83%E3%82%B1%E3%83%BC%E3%83%BB%5B%E6%B0%8F%E5%90%8D%5D" class="btn-primary" style="background: linear-gradient(135deg, #107c41, #1f9a55); color: white; border: none; box-shadow: 0 4px 15px rgba(16, 124, 65, 0.3); font-size: 0.95rem; text-transform: none; text-decoration: none;">
+                    ✉️ <span class="en">Create Email Automatically</span><span class="ja">メール作成画面を自動で開く</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">
+        &copy; 2026 Japan Underwater Hockey Team. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
