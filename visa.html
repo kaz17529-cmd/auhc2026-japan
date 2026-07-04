@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa & Arrival Card - Japan Team</title>
+    <meta name="description" content="e-VOA and All Indonesia registration guide for CMAS Asia Under Water Hockey Cup.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="lang-ja locked">
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-box glass">
+            <h2 style="border:none; margin-bottom: 1rem;">
+                <span class="en" style="color: white;">Enter Password</span>
+                <span class="ja" style="color: white;">パスワードを入力</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem;">
+                <span class="en">This page is restricted to team members.</span>
+                <span class="ja">チーム限定の共有ページです。</span>
+            </p>
+            <input type="password" id="password-input" placeholder="Password" />
+            <p id="password-error" style="color: #ff4b4b; display: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                <span class="en">Incorrect password.</span>
+                <span class="ja">パスワードが間違っています。</span>
+            </p>
+            <button id="btn-unlock" class="btn-primary" style="margin-top: 1.5rem; width: 100%; border: none;">
+                <span class="en">Unlock</span>
+                <span class="ja">ロック解除</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <span class="en">Visa & Arrival Card</span>
+            <span class="ja">ビザ・到着カード</span>
+        </div>
+        <div style="margin-left: auto; margin-right: 1.5rem;">
+            <a href="index.html" class="nav-btn" style="color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+                <span class="en">← Back to Main</span>
+                <span class="ja">← メインページに戻る</span>
+            </a>
+        </div>
+        <div class="lang-switch">
+            <button id="btn-ja" class="active">日本語</button>
+            <button id="btn-en">EN</button>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 180px; padding-bottom: 60px; max-width: 1000px; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem;">
+        
+        <!-- Header Introduction -->
+        <section class="card glass" style="margin-bottom: 2.5rem;">
+            <h2>
+                <span class="en">Indonesia Entry Requirements</span>
+                <span class="ja">インドネシア入国にあたっての必要手続き</span>
+            </h2>
+            <p style="margin-bottom: 0; line-height: 1.7;">
+                <span class="en">For all team members entering Indonesia for the tournament, both the **e-VOA (Electronic Visa on Arrival)** and the **All Indonesia Digital Arrival Card** must be prepared beforehand. Please review the details below and complete the applications accordingly.</span>
+                <span class="ja">大会参加のためにインドネシアに入国する際、代表チームのメンバー全員が事前に入国用ビザ **「e-VOA」** の申請と、デジタル到着カード **「All Indonesia」** の登録を行う必要があります。以下の手順と注意事項を確認し、必ず期日までに手続きを行ってください。</span>
+            </p>
+        </section>
+
+        <!-- e-VOA Section -->
+        <section class="card glass" style="margin-bottom: 2.5rem; border-left: 4px solid var(--primary-cyan);">
+            <h2 style="color: var(--primary-cyan);">
+                <span class="en">1. e-VOA (Electronic Visa on Arrival)</span>
+                <span class="ja">１．オンライン到着ビザ（e-VOA）の申請</span>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.7;">
+                <span class="en">Indonesia requires a visa for entry. Applying online beforehand (e-VOA) speeds up the immigration process significantly compared to buying it physically at the airport.</span>
+                <span class="ja">インドネシアへの入国にはビザ（査証）が必要です。現地空港で並んで取得することも可能ですが、事前にオンラインで申請（e-VOA）を済ませておくことで、到着時の入国審査をスムーズに通過できます。</span>
+            </p>
+
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; line-height: 1.7;">
+                <div>
+                    <strong><span class="en">Visa Category:</span><span class="ja">ビザの種類：</span></strong>
+                    <span class="en">B213 - Tourism / Business (30 days single entry)</span>
+                    <span class="ja">B213 - 観光 / 商用 (30日間有効・シングルエントリー)</span>
+                </div>
+                <div>
+                    <strong><span class="en">Fee:</span><span class="ja">申請料金：</span></strong>
+                    <span>500,000 IDR <span class="ja"><small>(約4,700円)</small></span> <span class="en"><small>(approx. 33 USD)</small></span> + Transaction fee (approx. 10,000 - 20,000 IDR)</span>
+                </div>
+                <div>
+                    <strong><span class="en">Required Documents:</span><span class="ja">必要なもの：</span></strong>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.25rem;">
+                        <li><span class="en">Passport (valid for at least 6 months from entry date)</span><span class="ja">パスポート（入国時点で有効期限が6ヶ月以上残っているもの）</span></li>
+                        <li><span class="en">Passport bio-data page photo/image file (PDF/JPEG)</span><span class="ja">パスポートの顔写真ページの画像ファイル（PDFまたはJPEG）</span></li>
+                        <li><span class="en">Personal photo file (JPG/JPEG/PNG, color passport-style photo)</span><span class="ja">本人の顔写真データ（背景白・カラー、JPG/JPEG/PNG形式）</span></li>
+                        <li><span class="en">Return flight ticket or transit flight ticket</span><span class="ja">往復の航空券、または第三国へ出国する航空券データ</span></li>
+                        <li><span class="en">Credit Card for payment</span><span class="ja">クレジットカード（ビザ代金オンライン決済用）</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Caution Alert -->
+            <div style="background: rgba(255, 75, 75, 0.05); border: 1px solid rgba(255, 75, 75, 0.3); padding: 1.2rem; border-radius: 8px; margin-bottom: 2rem; color: #ff8b8b; font-size: 0.95rem; line-height: 1.7;">
+                <strong>
+                    <span class="en">⚠️ BEWARE OF FRAUDULENT WEBSITES!</span>
+                    <span class="ja">⚠️ 偽サイト・高額手数料を請求する詐欺サイトに注意！</span>
+                </strong>
+                <p style="margin-top: 0.5rem;">
+                    <span class="en">There are numerous unofficial/scam websites that look identical to the official immigration portal. They charge extra processing fees (sometimes over $100). The official government portal has `.go.id` in its URL. Never pay more than 500,000 IDR (plus minimal card fee) for a tourist VoA.</span>
+                    <span class="ja">インターネット検索で「インドネシア ビザ 申請」と検索すると、公式サイトにそっくりな模倣サイトや詐欺サイトが広告欄等に多数表示されます。これらを利用すると、高額な代行手数料（数万円など）を騙し取られるケースが発生しています。公式サイトのURLは必ず <strong>.go.id</strong> で終わります。必ず以下の公式リンクから直接申請してください。</span>
+                </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://evisa.imigrasi.go.id/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1rem; padding: 0.8rem 2.5rem; display: inline-flex; align-items: center; gap: 0.5rem; text-transform: none; background: linear-gradient(135deg, #00b0ff, #0081cb); border: none; box-shadow: 0 4px 15px rgba(0, 176, 255, 0.3);">
+                    ✈️ <span class="en">Apply at Official e-VOA Portal</span><span class="ja">公式 e-VOA 申請サイトを開く</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- All Indonesia Section -->
+        <section class="card glass" style="margin-bottom: 2.5rem; border-left: 4px solid #00c853;">
+            <h2 style="color: #00c853;">
+                <span class="en">2. Digital Arrival Card "All Indonesia"</span>
+                <span class="ja">２．デジタル到着カード「All Indonesia」の登録</span>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.7;">
+                <span class="en">"All Indonesia" is a new unified digital declaration system for immigration, customs, health, and quarantine. It replaces the old paper forms and the Electronic Customs Declaration (e-CD).</span>
+                <span class="ja">「All Indonesia」は、従来の出入国カード、電子税関申告（e-CD）、検疫・健康申告等が一つに統合された、最新のワンストップ入国登録システムです。紙の書類の代わりに、事前にオンラインから登録を行います。</span>
+            </p>
+
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; line-height: 1.7;">
+                <div>
+                    <strong><span class="en">Submission Window:</span><span class="ja">登録可能期間：</span></strong>
+                    <span class="en">Within **72 hours (3 days)** before your arrival in Indonesia. (It cannot be submitted earlier)</span>
+                    <span class="ja">インドネシア到着前の **72時間（3日前）以内**。それ以前には申請できませんのでご注意ください。</span>
+                </div>
+                <div>
+                    <strong><span class="en">Fee:</span><span class="ja">登録料金：</span></strong>
+                    <span class="en">**Free of charge.** Do not pay any fees for this arrival card.</span>
+                    <span class="ja">**無料** です。手数料等を請求する偽サイトには十分ご注意ください。</span>
+                </div>
+                <div>
+                    <strong><span class="en">Scope of Registration:</span><span class="ja">登録対象：</span></strong>
+                    <span class="en">Every individual traveler, including children and infants, must submit their own registration and obtain a QR code.</span>
+                    <span class="ja">乳幼児を含め、入国するメンバー全員が個別に登録をしてQRコードを取得する必要があります。</span>
+                </div>
+                <div>
+                    <strong><span class="en">After Submission:</span><span class="ja">登録完了後：</span></strong>
+                    <span class="en">You will receive a **QR code** on your screen upon successful registration. Please **screenshot or print** the QR code. You will need to show it to the customs officer and quarantine officer at the airport in Indonesia.</span>
+                    <span class="ja">登録が完了すると **QRコード** が画面に表示されます。必ずスマホで **スクリーンショットを撮影** するか、紙に印刷してご持参ください。現地空港の税関や検疫ゲートで提示を求められます。</span>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://allindonesia.imigrasi.go.id/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1rem; padding: 0.8rem 2.5rem; display: inline-flex; align-items: center; gap: 0.5rem; text-transform: none; background: linear-gradient(135deg, #00c853, #1f9a55); border: none; box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);">
+                    📝 <span class="en">Register at Official All Indonesia Portal</span><span class="ja">公式 All Indonesia 登録サイトを開く</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">
+        &copy; 2026 Japan Underwater Hockey Team. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
