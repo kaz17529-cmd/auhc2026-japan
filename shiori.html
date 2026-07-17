@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guide & Flights - Japan Team</title>
+    <meta name="description" content="Flight schedule, seat assignments, and travel guidelines for CMAS Asia Under Water Hockey Cup.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .seat-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .seat-table th, .seat-table td {
+            padding: 0.75rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .seat-table th {
+            background: rgba(0, 229, 255, 0.1);
+            color: var(--primary-cyan);
+            font-weight: 600;
+        }
+        .seat-table tr:last-child td {
+            border-bottom: none;
+        }
+        .seat-badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--primary-cyan);
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body class="lang-ja locked">
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-box glass">
+            <h2 style="border:none; margin-bottom: 1rem;">
+                <span class="en" style="color: white;">Enter Password</span>
+                <span class="ja" style="color: white;">パスワードを入力</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem;">
+                <span class="en">This page is restricted to team members.</span>
+                <span class="ja">チーム限定の共有ページです。</span>
+            </p>
+            <input type="password" id="password-input" placeholder="Password" />
+            <p id="password-error" style="color: #ff4b4b; display: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                <span class="en">Incorrect password.</span>
+                <span class="ja">パスワードが間違っています。</span>
+            </p>
+            <button id="btn-unlock" class="btn-primary" style="margin-top: 1.5rem; width: 100%; border: none;">
+                <span class="en">Unlock</span>
+                <span class="ja">ロック解除</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <span class="en">Travel Guide</span>
+            <span class="ja">旅のしおり</span>
+        </div>
+        <div style="margin-left: auto; margin-right: 1.5rem;">
+            <a href="index.html" class="nav-btn" style="color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+                <span class="en">← Back to Main</span>
+                <span class="ja">← メインページに戻る</span>
+            </a>
+        </div>
+        <div class="lang-switch">
+            <button id="btn-ja" class="active">日本語</button>
+            <button id="btn-en">EN</button>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 180px; padding-bottom: 60px; max-width: 1000px; margin: 0 auto; padding-left: 1.5rem; padding-right: 1.5rem;">
+        
+        <!-- Welcome Section / PDF Links -->
+        <section class="card glass" style="margin-bottom: 2.5rem;">
+            <h2>
+                <span class="en">Travel Documents & Itinerary</span>
+                <span class="ja">旅のしおり・配布資料</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem; line-height: 1.7;">
+                <span class="en">Below are the travel guidelines and documents for the tournament in Indonesia. Please download or view the PDFs and ensure you have reviewed all flight and baggage guidelines.</span>
+                <span class="ja">インドネシア遠征にあたってのしおりおよび配布資料です。PDF資料をダウンロード、またはブラウザで表示して、フライトスケジュールや手荷物制限等の詳細を必ず事前にご確認ください。</span>
+            </p>
+            
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <a href="2026_水中ホッケー_旅のしおり.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1rem; padding: 0.8rem 2rem; display: inline-flex; align-items: center; gap: 0.5rem; text-transform: none; background: linear-gradient(135deg, #00b0ff, #0081cb); border: none; box-shadow: 0 4px 15px rgba(0, 176, 255, 0.3);">
+                    ✈️ <span class="en">View Travel Guide (PDF)</span><span class="ja">西鉄旅行 旅のしおりを表示 (PDF)</span>
+                </a>
+                <a href="NH855_NH856_座席表.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 1rem; padding: 0.8rem 2rem; display: inline-flex; align-items: center; gap: 0.5rem; text-transform: none; background: linear-gradient(135deg, #00c853, #1f9a55); border: none; box-shadow: 0 4px 15px rgba(0, 200, 83, 0.3);">
+                    💺 <span class="en">View Flight Seat Assignments (PDF)</span><span class="ja">フライト座席表を表示 (PDF)</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Flight Overview -->
+        <section class="card glass" style="margin-bottom: 2.5rem; border-left: 4px solid var(--primary-cyan);">
+            <h2 style="color: var(--primary-cyan);">
+                <span class="en">Flight Schedule & Departure Info</span>
+                <span class="ja">フライト情報・集合案内</span>
+            </h2>
+            
+            <div style="background: rgba(255, 255, 255, 0.03); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.95rem; line-height: 1.7;">
+                <div>
+                    <strong><span class="en">Outbound Flight (NH855):</span><span class="ja">往路 (NH855)：</span></strong>
+                    <span class="en">Aug 3 (Mon) - Haneda (HND) **10:15** → Jakarta (CGK) **16:00**</span>
+                    <span class="ja">8月3日 (月) - 羽田 (HND) **10:15発** → ジャカルタ (CGK) **16:00着**</span>
+                </div>
+                <div>
+                    <strong><span class="en">Return Flight (NH856):</span><span class="ja">復路 (NH856)：</span></strong>
+                    <span class="en">Aug 9 (Sun) - Jakarta (CGK) **21:25** → Haneda (HND) **06:50+1 (Aug 10)**</span>
+                    <span class="ja">8月9日 (日) - ジャカルタ (CGK) **21:25発** → 羽田 (HND) **翌06:50着 (8月10日)**</span>
+                </div>
+                <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 0.5rem 0;">
+                <div>
+                    <strong><span class="en">Departure Gathering (Aug 3):</span><span class="ja">出発当日の集合（8月3日）：</span></strong>
+                    <span class="en">**07:30 AM** at Haneda Airport Terminal 2, 3rd Floor, near "Information" desk.</span>
+                    <span class="ja">**午前 07:30** 羽田空港 第2ターミナル 3階「インフォメーション」付近</span>
+                </div>
+                <div>
+                    <strong><span class="en">Travel Agency Contact:</span><span class="ja">旅行代理店緊急連絡先：</span></strong>
+                    <span class="en">Nishitetsu Travel (Mr. Nakahara): **080-6478-1715**</span>
+                    <span class="ja">西鉄旅行 東京スポーツ支店 (担当：中原 史貴様)：**080-6478-1715**</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flight Seats Table -->
+        <section class="card glass" style="margin-bottom: 2.5rem;">
+            <h2>
+                <span class="en">Seat Assignments</span>
+                <span class="ja">搭乗便 座席割り当て一覧</span>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.7;">
+                <span class="en">The table below shows the pre-assigned seats for both outbound and return flights.</span>
+                <span class="ja">往路・復路の事前指定済み座席の一覧です。※座席番号は航空会社の都合で急遽変更になる場合があります。</span>
+            </p>
+
+            <div class="grid-2">
+                <div>
+                    <h3 style="text-align: center; color: var(--primary-cyan); margin-bottom: 0.5rem;">
+                        <span class="en">Outbound (NH855)</span><span class="ja">往路 (NH855)</span>
+                    </h3>
+                    <table class="seat-table">
+                        <thead>
+                            <tr>
+                                <th><span class="en">Seat</span><span class="ja">座席</span></th>
+                                <th><span class="en">Name</span><span class="ja">お名前</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="seat-badge">30D</span></td><td>高坂様 (TAKASAKA)</td></tr>
+                            <tr><td><span class="seat-badge">30F</span></td><td>柏木様 (KASHIWAGI)</td></tr>
+                            <tr><td><span class="seat-badge">30H</span></td><td>長嶋様 (NAGASHIMA)</td></tr>
+                            <tr><td><span class="seat-badge">30J</span></td><td>山田様 (YAMADA)</td></tr>
+                            <tr><td><span class="seat-badge">30K</span></td><td>伊東様 (ITO)</td></tr>
+                            <tr><td><span class="seat-badge">31D</span></td><td>碓井様 (USUI)</td></tr>
+                            <tr><td><span class="seat-badge">31F</span></td><td>森岡様 (MORIOKA)</td></tr>
+                            <tr><td><span class="seat-badge">31H</span></td><td>小竹様 (KOTAKE)</td></tr>
+                            <tr><td><span class="seat-badge">31J</span></td><td>坂本様 (SAKAMOTO)</td></tr>
+                            <tr><td><span class="seat-badge">31K</span></td><td>田中様 (TANAKA)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                    <h3 style="text-align: center; color: var(--primary-cyan); margin-bottom: 0.5rem;">
+                        <span class="en">Return (NH856)</span><span class="ja">復路 (NH856)</span>
+                    </h3>
+                    <table class="seat-table">
+                        <thead>
+                            <tr>
+                                <th><span class="en">Seat</span><span class="ja">座席</span></th>
+                                <th><span class="en">Name</span><span class="ja">お名前</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="seat-badge">23C</span></td><td>高坂様 (TAKASAKA)</td></tr>
+                            <tr><td><span class="seat-badge">23D</span></td><td>柏木様 (KASHIWAGI)</td></tr>
+                            <tr><td><span class="seat-badge">24C</span></td><td>長嶋様 (NAGASHIMA)</td></tr>
+                            <tr><td><span class="seat-badge">24D</span></td><td>山田様 (YAMADA)</td></tr>
+                            <tr><td><span class="seat-badge">25C</span></td><td>伊東様 (ITO)</td></tr>
+                            <tr><td><span class="seat-badge">25D</span></td><td>碓井様 (USUI)</td></tr>
+                            <tr><td><span class="seat-badge">26C</span></td><td>森岡様 (MORIOKA)</td></tr>
+                            <tr><td><span class="seat-badge">26D</span></td><td>小竹様 (KOTAKE)</td></tr>
+                            <tr><td><span class="seat-badge">27C</span></td><td>坂本様 (SAKAMOTO)</td></tr>
+                            <tr><td><span class="seat-badge">27D</span></td><td>田中様 (TANAKA)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Baggage Limits -->
+        <section class="card glass" style="margin-bottom: 2.5rem; border-left: 4px solid #ff9800;">
+            <h2 style="color: #ff9800;">
+                <span class="en">Baggage Regulations (ANA Economy)</span>
+                <span class="ja">無料受託手荷物・持ち込み制限 (ANAエコノミー)</span>
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                <div style="background: rgba(255,255,255,0.02); padding: 1.2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                    <h3 style="color: #ff9800; font-size: 1.1rem; margin-bottom: 0.75rem;">🧳 受託手荷物 (お預け)</h3>
+                    <ul style="margin-left: 1.2rem; font-size: 0.95rem; line-height: 1.6; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><strong>個数：</strong>1人につき **2個まで**</li>
+                        <li><strong>重量：</strong>1個あたり **23kgまで**</li>
+                        <li><strong>サイズ：</strong>3辺の和が **158cm以内**</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); padding: 1.2rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                    <h3 style="color: #ff9800; font-size: 1.1rem; margin-bottom: 0.75rem;">🎒 機内持ち込み手荷物</h3>
+                    <ul style="margin-left: 1.2rem; font-size: 0.95rem; line-height: 1.6; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><strong>個数：</strong>手荷物1個 + 身の回り品1個</li>
+                        <li><strong>総重量：</strong>合計 **10kg以内**</li>
+                        <li><strong>サイズ：</strong>3辺が **55x40x25cm以内**</li>
+                        <li><strong>液体物制限：</strong>各100ml以下の容器に入れ、1L以下のジッパー付透明袋に収納が必要。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">
+        &copy; 2026 Japan Underwater Hockey Team. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
