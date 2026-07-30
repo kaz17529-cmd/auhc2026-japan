@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captains & Coaches Briefing Pack - AUWHC 2026</title>
+    <meta name="description" content="Summary of the Captains & Coaches Briefing Pack for the 2026 CMAS Asian Championship Underwater Hockey.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .badge-warning {
+            background: rgba(255, 87, 34, 0.2);
+            color: #ff7043;
+            border: 1px solid rgba(255, 87, 34, 0.4);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .badge-info {
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--primary-cyan);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .mask-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .mask-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .mask-card.legal {
+            border-top: 4px solid #00e676;
+        }
+
+        .mask-card.illegal {
+            border-top: 4px solid #ff5252;
+        }
+
+        .mask-card .status-ok {
+            color: #00e676;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mask-card .status-ng {
+            color: #ff5252;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timetable-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .timetable-table th,
+        .timetable-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timetable-table th {
+            background: rgba(0, 229, 255, 0.1);
+            color: var(--primary-cyan);
+            font-weight: 600;
+        }
+
+        .highlight-row {
+            background: rgba(255, 152, 0, 0.15) !important;
+            border-left: 4px solid #ff9800;
+        }
+    </style>
+</head>
+
+<body class="lang-ja locked">
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-box glass">
+            <h2 style="border:none; margin-bottom: 1rem;">
+                <span class="en" style="color: white;">Enter Password</span>
+                <span class="ja" style="color: white;">パスワードを入力</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem;">
+                <span class="en">This page is restricted to team members.</span>
+                <span class="ja">チーム限定の共有ページです。</span>
+            </p>
+            <input type="password" id="password-input" placeholder="Password" />
+            <p id="password-error" style="color: #ff4b4b; display: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                <span class="en">Incorrect password.</span>
+                <span class="ja">パスワードが間違っています。</span>
+            </p>
+            <button id="btn-unlock" class="btn-primary" style="margin-top: 1.5rem; width: 100%; border: none;">
+                <span class="en">Unlock</span>
+                <span class="ja">ロック解除</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <span class="en">AUWHC 2026</span>
+                <span class="ja">AUWHC 2026</span>
+            </a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="index.html" class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                <span class="en">← Home</span>
+                <span class="ja">← トップへ</span>
+            </a>
+            <div class="lang-switch">
+                <button id="btn-ja" class="active">日本語</button>
+                <button id="btn-en">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" style="min-height: 40vh; padding-top: 6rem;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="glow-text" style="font-size: 2.2rem;">
+                <span class="en">Captains & Coaches Briefing</span>
+                <span class="ja">監督・主将ブリーフィング要約</span>
+            </h1>
+            <p class="subtitle" style="margin-bottom: 1rem;">
+                <span class="en">2026 CMAS Asian Championship Briefing Pack Summary</span>
+                <span class="ja">2026 CMAS アジア選手権 公式ブリーフィング資料の重要事項要約</span>
+            </p>
+            <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap;">
+                <span class="badge-info">
+                    <span class="en">Venue: Seruni Hotel, Bogor, Indonesia</span>
+                    <span class="ja">会場: インドネシア・ボゴール Seruni Hotel</span>
+                </span>
+                <span class="badge-warning">
+                    <span class="en">Official Notice: WhatsApp Group & Entrance Board</span>
+                    <span class="ja">公式連絡: WhatsAppグループ & プール入口掲示板</span>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="details">
+
+        <!-- 1. Overview & Tournament Officials -->
+        <section class="card glass">
+            <h2>
+                <span class="en">1. Overview & Officials</span>
+                <span class="ja">1. 概要・大会主要役員</span>
+            </h2>
+            <p>
+                <span class="en">This briefing pack provides crucial information on tournament operations and specific game rules. It replaces the traditional in-person Captains Meeting.</span>
+                <span class="ja">本資料は従来の対面「監督・キャプテン会議」に代わる公式ブリーフィング資料です。競技規程・運営ルールの重要事項がまとめられています。</span>
+            </p>
+            <div class="grid-2" style="margin-top: 1rem;">
+                <div class="info-item">
+                    <h3><span class="en">CMAS Technical Delegate</span><span class="ja">CMAS 技術代表 (TD)</span></h3>
+                    <p><strong>Tony Colquhoun (NZL)</strong><br>
+                        <small style="opacity: 0.8;">Email: tony.colquhoun@sport.cmas.org</small>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <h3><span class="en">Tournament Referee</span><span class="ja">審判長 (Tournament Referee)</span></h3>
+                    <p><strong>Jack van Blerk (RSA)</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Registration & Practice Schedule -->
+        <section class="card glass">
+            <h2>
+                <span class="en">2. Registration, Gear Check & Practice</span>
+                <span class="ja">2. 受付・ギアチェック & 公式練習</span>
+            </h2>
+            <p>
+                <span class="en">Held poolside at the <strong>Seruni Hotel</strong>. All players must bring their <strong>Passport</strong> (for nationality & DOB verification) and <strong>all playing gear</strong>.</span>
+                <span class="ja">会場は <strong>Seruni Hotel プールサイド</strong> です。全選手が <strong>パスポート（国籍・年齢確認用）</strong> と <strong>すべての試合ギア</strong> を持参する必要があります。</span>
+            </p>
+
+            <h3 style="margin-top: 1.5rem; color: var(--primary-cyan);">
+                <span class="en">🇯🇵 Japan Men (ME JPN) Schedule</span>
+                <span class="ja">🇯🇵 日本男子 (ME JPN) 指定スケジュール</span>
+            </h3>
+            
+            <div class="table-container">
+                <table class="timetable-table">
+                    <thead>
+                        <tr>
+                            <th><span class="en">Item</span><span class="ja">項目</span></th>
+                            <th><span class="en">Date & Time</span><span class="ja">日時</span></th>
+                            <th><span class="en">Location / Court</span><span class="ja">場所・コート</span></th>
+                            <th><span class="en">Notes</span><span class="ja">備考</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td><strong><span class="en">Allocated Practice</span><span class="ja">公式練習</span></strong></td>
+                            <td><strong><span class="en">Tue, Aug 4: 9:00 AM - 9:45 AM</span><span class="ja">8月4日(火) 9:00 〜 9:45</span></strong></td>
+                            <td><span class="en">Court 2</span><span class="ja">Court 2</span></td>
+                            <td><span class="en">Referees on request (if available)</span><span class="ja">審判の割り当ては事前リクエスト制</span></td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong><span class="en">Registration & Gear Check</span><span class="ja">受付・ギアチェック</span></strong></td>
+                            <td><strong><span class="en">Tue, Aug 4: 4:00 PM - 4:30 PM</span><span class="ja">8月4日(火) 16:00 〜 16:30</span></strong></td>
+                            <td><span class="en">Poolside</span><span class="ja">プールサイド</span></td>
+                            <td><span class="en">Bring Passports + ALL Gear</span><span class="ja">パスポート＋全用具必携</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: 0.9rem; opacity: 0.9; border-left: 3px solid var(--primary-cyan); padding-left: 0.8rem; margin-top: 0.5rem;">
+                <span class="en">※ Non-citizen players representing a country must obtain prior written approval from the Technical Delegate.</span>
+                <span class="ja">※ 自国の国籍を持たない選手が出場する場合は、事前に技術代表（TD）からの書類承認が必須です。</span>
+            </p>
+        </section>
+
+        <!-- 3. Pool Complex & Access Regulations -->
+        <section class="card glass">
+            <h2>
+                <span class="en">3. Pool Complex & Deck Access</span>
+                <span class="ja">3. プール施設規定・デッキ立ち入りルール</span>
+            </h2>
+            <ul style="padding-left: 1.2rem; line-height: 1.8;">
+                <li>
+                    <strong><span class="en">Tournament ID Required:</span><span class="ja">IDの携帯必須:</span></strong>
+                    <span class="en">Official Tournament ID is mandatory at all times to enter the pool facility and deck.</span>
+                    <span class="ja">プール施設およびデッキへの入場には、常に「トーナメントID」の提示が必要です。</span>
+                </li>
+                <li>
+                    <strong><span class="en">Court Layout:</span><span class="ja">コート配置:</span></strong>
+                    <span class="en">Court 1 is nearest to the pool entrance. White caps start from the Grandstand side. Pool end areas are strict "No-Entry Zones".</span>
+                    <span class="ja">Court 1がプール入口側。白キャップチームは観客席（Grandstand）側からスタート。両エンドの壁側プール底エリアは「立ち入り禁止区域（No-Entry Zones）」です。</span>
+                </li>
+                <li>
+                    <strong><span class="en">Warmup Pool Access:</span><span class="ja">ウォームアッププールの利用制限:</span></strong>
+                    <span class="en">Available <strong>35 minutes prior</strong> to match (25 mins for U15/U19). Entry ONLY via lower grandstand level. <strong>Shower required before entering. NO sunblock, silicon, or shampoo after warmup to keep water clear.</strong> Post-game cooldown available for 10 mins (priority to next team warming up).</span>
+                    <span class="ja">試合開始の <strong>35分前</strong> から利用可能（U15/U19は25分前）。観客席下の指定口から入場。入水前の <strong>シャワー必須</strong>。プールの透明度維持のため、<strong>ウォームアップ後の日焼け止め・シリコンオイル・マスク用シャンプー等の塗布は厳禁</strong>。試合後は5分以内にデッキ退去（クールダウン10分利用可能だが次試合のウォームアップ優先）。</span>
+                </li>
+                <li>
+                    <strong><span class="en">Deck Capacity During Match:</span><span class="ja">試合中のデッキ立ち入り上限人数:</span></strong>
+                    <div style="background: rgba(255,255,255,0.03); padding: 0.8rem 1rem; border-radius: 6px; margin-top: 0.5rem;">
+                        ・<span class="en">Up to 10 players</span><span class="ja">選手: 最大10名</span><br>
+                        ・<span class="en">Up to 4 support staff:</span><span class="ja">サポートスタッフ: 最大4名まで</span>
+                        <ul style="padding-left: 1.5rem; margin-top: 0.3rem;">
+                            <li><span class="en">In water (max 2): 1 Coach in designated area (MUST wear GREEN cap) + 1 Support behind coach area (No player/coach/referee cap allowed, no entry into playing area).</span><span class="ja">水中（最大2名）: 指定エリアの監督1名（<strong>緑キャップ着用必須</strong>）＋ 監督後ろの補助員1名（選手・監督・審判のキャップ着用不可、競技エリア進入不可）。</span></li>
+                            <li><span class="en">Defending end (max 2): Up to 2 people on the defending pool end.</span><span class="ja">自陣エンド側（最大2名）: 自チームが防衛するエンド側の壁端に最大2名まで配置可能。</span></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <strong><span class="en">Pre-Game Gear Check:</span><span class="ja">試合前ギアチェック:</span></strong>
+                    <span class="en">Available 15 mins prior to match. Reserve gear kept by substitutes must also be checked. Non-playing squad members must be declared to the score bench 15 mins prior.</span>
+                    <span class="ja">試合開始15分前からプレゲームマーシャリングエリアで実施。控え選手が保持する予備用具もチェック対象。試合15分前にスコアデスクへベンチ外メンバーを申告。</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 4. Equipment & Rule Clarifications -->
+        <section class="card glass">
+            <h2>
+                <span class="en">4. Equipment & Rule Clarifications</span>
+                <span class="ja">4. 用具規程 & 競技ルールの解釈</span>
+            </h2>
+
+            <h3 style="color: var(--primary-cyan); margin-bottom: 0.5rem;">
+                <span class="en">Mask Regulations (P33)</span>
+                <span class="ja">マスクの適格基準（33ページ参照）</span>
+            </h3>
+            <p><span class="en">Strict compliance with CMAS equipment rules is required:</span><span class="ja">CMASの用具ガイドラインに従い、以下の基準が厳格に適用されます：</span></p>
+
+            <div class="mask-grid">
+                <div class="mask-card legal">
+                    <div class="status-ok">✔ LEGAL (適格)</div>
+                    <strong><span class="en">2 Separate Lenses</span><span class="ja">二眼式（レンズが左右分離）</span></strong>
+                    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.4rem;">
+                        <span class="en">Mask has two completely separated lenses.</span>
+                        <span class="ja">左右のレンズが独立している標準的な2眼タイプ。</span>
+                    </p>
+                </div>
+                <div class="mask-card legal">
+                    <div class="status-ok">✔ LEGAL (適格)</div>
+                    <strong><span class="en">Monolithic Mask</span><span class="ja">一体成型（モノリシック）</span></strong>
+                    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.4rem;">
+                        <span class="en">Lens and frame/bezel are molded in a single piece.</span>
+                        <span class="ja">レンズとフレーム（ベゼル）が一体成型された単眼タイプ。</span>
+                    </p>
+                </div>
+                <div class="mask-card illegal">
+                    <div class="status-ng">✖ ILLEGAL (非適格・使用不可)</div>
+                    <strong><span class="en">Non-Monolithic Single Lens</span><span class="ja">フレーム別体の単眼マスク</span></strong>
+                    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 0.4rem;">
+                        <span class="en">Single lens with separate bezel/frame. NOT allowed.</span>
+                        <span class="ja">レンズとフレームが分離した1眼タイプは<strong>反則用具となり使用不可！</strong></span>
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-cyan); margin-top: 1.8rem; margin-bottom: 0.5rem;">
+                <span class="en">Player Identification & Markings (P26)</span>
+                <span class="ja">選手マーキング・番号表記規定（26ページ参照）</span>
+            </h3>
+            <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 6px;">
+                ・<strong><span class="en">Shoulders:</span><span class="ja">両肩:</span></strong> <span class="en">75mm cap number</span><span class="ja">75mmのキャップ番号</span><br>
+                ・<strong><span class="en">Both Legs:</span><span class="ja">両脚:</span></strong> <span class="en">100mm cap number on both legs</span><span class="ja">両脚に100mmのキャップ番号</span><br>
+                ・<strong><span class="en">Captain / Vice Captain:</span><span class="ja">キャプテン / 副キャプテン:</span></strong> <span class="en">"C" and "VC" on each arm</span><span class="ja">両腕に「C」および「VC」を表記</span><br>
+                ・<span class="en">No other body writing is permitted.</span><span class="ja">それ以外のボディペイント・書き込みは禁止。</span>
+            </div>
+
+            <h3 style="color: var(--primary-cyan); margin-top: 1.8rem; margin-bottom: 0.5rem;">
+                <span class="en">Key Game Rules & Referees Protocols</span>
+                <span class="ja">重要ゲームルール・審判運用</span>
+            </h3>
+            <ul style="padding-left: 1.2rem; line-height: 1.8;">
+                <li>
+                    <strong><span class="en">In-Water Substitution:</span><span class="ja">水面交代（In-Water Side Substitution）:</span></strong>
+                    <span class="en">The "snorkel breaks surface" rule applies. Chief referee must see the snorkels of players in the substitution area (NO keeping heads underwater to watch). NO contact with lane ropes.</span>
+                    <span class="ja">「シュノーケルが水面から出ていること」が条件。交代エリアの選手が水中に頭を入れて試合を観戦することは厳禁。コースロープへの接触禁止。</span>
+                </li>
+                <li>
+                    <strong><span class="en">Time Penalty Area:</span><span class="ja">ペナルティエリア:</span></strong>
+                    <span class="en">Located on the bulkhead between courts. Penalty time begins once the player reaches the penalty area and play restarts (official time is kept by the timekeeper). Only slide into the water when allowed to return.</span>
+                    <span class="ja">両コート間のバルクヘッド上に配置。退場選手がエリアに到着し、試合が再開した時点から計時開始（公式タイムキーパーの時計が優先）。復帰時はスライド入水のみ。</span>
+                </li>
+                <li>
+                    <strong><span class="en">Player in Goal Volume:</span><span class="ja">ゴールボリュームへの侵入禁止:</span></strong>
+                    <span class="en">No part of the body is permitted inside the goal volume to stop a goal. Puck stopped by body inside goal volume results in illegal stop infraction.</span>
+                    <span class="ja">ゴールを防ぐ目的で体の一部をゴールボリューム内に入れることは禁止。体でパックを止めた場合は反則（ペナルティ）となります。</span>
+                </li>
+                <li>
+                    <strong><span class="en">Dangerous Shots (17.13):</span><span class="ja">危険なシュート（Dangerous Shots）:</span></strong>
+                    <span class="en">Puck hitting a player on an upward path is deemed dangerous (2 or 5 min penalty, or match ejection for deliberate dangerous play). Hits on own teammates are also included.</span>
+                    <span class="ja">上昇軌道（Upward path）で選手に当たるパック打撃は危険行為と見なされます（2分/5分ペナルティまたは退場）。自チームの選手に当たった場合も対象。</span>
+                </li>
+                <li>
+                    <strong><span class="en">Obstruction Enforcement:</span><span class="ja">オブストラクション（妨害行為）の厳格化:</span></strong>
+                    <span class="en">Active obstruction is strictly penalized (e.g. taking space / "star fish", dropping elbow/shoulder, leaving fins in the way on a curl, locked arm, lifting player from underneath).</span>
+                    <span class="ja">アクティブな妨害行動（「スターフィッシュ」によるスペース占有、肘・肩を落とす、カール時のフィン・脚での妨害、ロックアーム、下から持ち上げる行為等）は厳格にペナルティ。</span>
+                </li>
+                <li>
+                    <strong><span class="en">Concussion & Blood Protocol:</span><span class="ja">脳震盪・出血プロトコル:</span></strong>
+                    <span class="en">Suspected concussion requires referee timeout and <strong>written medical clearance</strong> to TD before returning. Bleeding players MUST leave pool until blood is removed and bleeding stops.</span>
+                    <span class="ja">脳震盪が疑われる場合は審判タイムアウトを実施し、<strong>医師の書面による復帰許可（Medical Clearance）</strong> が必須。出血がある選手は完全止血・血の除去まで復帰不可。</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- 5. Ceremonies & Protest Regulations -->
+        <section class="card glass">
+            <h2>
+                <span class="en">5. Ceremonies, Protests & Streaming</span>
+                <span class="ja">5. 式典・抗議手続き・メディア配信</span>
+            </h2>
+
+            <div class="grid-2">
+                <div class="info-item">
+                    <h3><span class="en">Opening Ceremony</span><span class="ja">開会式</span></h3>
+                    <p>
+                        <strong><span class="en">Wed, Aug 5 @ 11:00 AM</span><span class="ja">8月5日(水) 11:00 〜 12:00</span></strong><br>
+                        <span class="en">Location: Pool Complex</span><span class="ja">場所: プール複合施設</span><br>
+                        <small style="opacity: 0.8;">
+                            ・10:30 Flag Bearers (2 per country) assemble at Court 1 grandstand end.<br>
+                            ・10:45 All attendees seated.<br>
+                            ・<strong>BRING NATIONAL FLAG</strong> to registration!
+                        </small>
+                        <small style="opacity: 0.8;" class="ja"><br>
+                            ・10:30 旗手（各国2名）集合（Court 1端観客席）<br>
+                            ・10:45 全員着席 / 11:00 開会<br>
+                            ・<strong>国旗を持参し受付に事前提出してください。</strong>
+                        </small>
+                    </p>
+                </div>
+                <div class="info-item">
+                    <h3><span class="en">Closing & Medal Ceremony</span><span class="ja">閉会式・表彰式</span></h3>
+                    <p>
+                        <strong><span class="en">Sat, Aug 8 @ 4:30 PM</span><span class="ja">8月8日(土) 16:30 〜 17:30</span></strong><br>
+                        <span class="en">Location: Pool Complex</span><span class="ja">場所: プール複合施設</span><br>
+                        <small style="opacity: 0.8;">
+                            ・4:15 PM Attendees seated.<br>
+                            ・4:30 PM Medal & Closing Ceremony.<br>
+                            ・Assigned seating for medal receiving teams.
+                        </small>
+                        <small style="opacity: 0.8;" class="ja"><br>
+                            ・16:15 全員着席<br>
+                            ・16:30 メダル授与式および閉会式開始<br>
+                            ・メダル獲得チームには指定席あり。
+                        </small>
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--primary-cyan); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                <span class="en">Protests Procedure (P28)</span>
+                <span class="ja">抗議（Protest）の手続き（28ページ参照）</span>
+            </h3>
+            <div style="background: rgba(255,87,34,0.1); border-left: 4px solid #ff5722; padding: 1rem; border-radius: 4px;">
+                1. <strong><span class="en">Verbal Notice:</span><span class="ja">口頭通告:</span></strong> <span class="en">Announce to TD or Tournament Referee within <strong>15 minutes</strong> of match conclusion.</span><span class="ja">試合終了後 <strong>15分以内</strong> にTDまたは審判長へ口頭で申し出る。</span><br>
+                2. <strong><span class="en">Written Lodge & Cash Deposit:</span><span class="ja">書面提出 & 保証金:</span></strong> <span class="en">Lodge written protest within <strong>1 hour</strong> of match end together with a cash deposit of <strong>IDR 4,000,000 (or EUR 100)</strong>.</span><span class="ja">試合終了後 <strong>1時間以内</strong> に書面で抗議書を提出し、保証金 <strong>IDR 4,000,000 （または EUR 100）の現金</strong> を納付する。</span>
+            </div>
+
+            <h3 style="color: var(--primary-cyan); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+                <span class="en">Live Streaming & Commentators (P23-24)</span>
+                <span class="ja">配信・実況アナウンサー（23-24ページ参照）</span>
+            </h3>
+            <ul style="padding-left: 1.2rem; line-height: 1.8;">
+                <li><span class="en">Matches streamed live on <strong>CMAS TV</strong>. Unauthorized filming by coaches/teams in water is prohibited due to CMAS copyright.</span><span class="ja">全試合が <strong>CMAS TV</strong> にてライブ配信されます。著作権保護のため、コーチ・関係者による水中の無断録画は禁止。</span></li>
+                <li><span class="en">Each team is requested to provide commentators for approx 3 games during the tournament (Sign-up sheet at registration).</span><span class="ja">各チーム、大会中約3試合の英語実況（Commentator）を担当することが要請されています（受付時に希望登録）。</span></li>
+            </ul>
+        </section>
+
+        <!-- Back to Top / Links -->
+        <div style="text-align: center; margin-top: 3rem; margin-bottom: 2rem;">
+            <a href="index.html" class="btn-primary" style="padding: 0.8rem 2rem; font-size: 1.1rem; background: linear-gradient(135deg, #00e5ff, #0081cb); border: none; color: #000; font-weight: bold;">
+                <span class="en">Back to Main Hub</span>
+                <span class="ja">メインハブ（トップページ）へ戻る</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Japan Underwater Hockey Committee. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
