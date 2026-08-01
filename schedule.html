@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match & Practice Schedule - AUWHC 2026</title>
+    <meta name="description" content="Official Match and Practice Schedule for the 2026 CMAS Asian Underwater Hockey Championship.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Noto+Sans+JP:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.92rem;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.75rem 0.8rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .schedule-table th {
+            background: rgba(0, 229, 255, 0.12);
+            color: var(--primary-cyan);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .highlight-jp {
+            background: rgba(255, 152, 0, 0.22) !important;
+            border-left: 4px solid #ff9800;
+            font-weight: bold;
+        }
+
+        .team-jp {
+            color: #ffb74d;
+            font-weight: bold;
+        }
+
+        .court-badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .court-1 {
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--primary-cyan);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+        }
+
+        .court-2 {
+            background: rgba(156, 39, 176, 0.2);
+            color: #ce93d8;
+            border: 1px solid rgba(156, 39, 176, 0.4);
+        }
+
+        .timeline-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-cyan);
+        }
+
+        .timeline-card.jp-match {
+            border-left: 4px solid #ff9800;
+            background: rgba(255, 152, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body class="lang-ja locked">
+    <!-- Password Overlay -->
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-box glass">
+            <h2 style="border:none; margin-bottom: 1rem;">
+                <span class="en" style="color: white;">Enter Password</span>
+                <span class="ja" style="color: white;">パスワードを入力</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem;">
+                <span class="en">This page is restricted to team members.</span>
+                <span class="ja">チーム限定の共有ページです。</span>
+            </p>
+            <input type="password" id="password-input" placeholder="Password" />
+            <p id="password-error" style="color: #ff4b4b; display: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                <span class="en">Incorrect password.</span>
+                <span class="ja">パスワードが間違っています。</span>
+            </p>
+            <button id="btn-unlock" class="btn-primary" style="margin-top: 1.5rem; width: 100%; border: none;">
+                <span class="en">Unlock</span>
+                <span class="ja">ロック解除</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar glass">
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <span class="en">AUWHC 2026</span>
+                <span class="ja">AUWHC 2026</span>
+            </a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;">
+            <a href="briefing.html" class="nav-btn" style="color: #ff9800; text-decoration: none; font-weight: 600; font-size: 0.85rem;">
+                <span class="en">Briefing</span>
+                <span class="ja">ブリーフィング</span>
+            </a>
+            <a href="index.html" class="btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                <span class="en">← Home</span>
+                <span class="ja">← トップへ</span>
+            </a>
+            <div class="lang-switch">
+                <button id="btn-ja" class="active">日本語</button>
+                <button id="btn-en">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" style="min-height: 38vh; padding-top: 6rem;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="glow-text" style="font-size: 2.2rem;">
+                <span class="en">Match & Practice Schedule</span>
+                <span class="ja">試合・公式練習タイムスケジュール</span>
+            </h1>
+            <p class="subtitle" style="margin-bottom: 1.2rem;">
+                <span class="en">2026 CMAS Asian Underwater Hockey Championship (Aug 4 - 8, 2026)</span>
+                <span class="ja">2026 CMAS アジア水中ホッケー選手権 組み合わせ・日程一覧</span>
+            </p>
+            <div style="display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
+                <a href="書類/試合関係/2026%20AUHC%20Final%20Version%20of%20Draw.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: linear-gradient(135deg, #00e5ff, #0081cb); color: #000; font-weight: bold; border: none;">
+                    <span class="en">📄 Official Match Draw PDF</span>
+                    <span class="ja">📄 対戦組み合わせPDF (Final Draw)</span>
+                </a>
+                <a href="書類/試合関係/2026%20AUHC%20Registration%20%26%20Allocated%20Practice%20Times.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); color: white;">
+                    <span class="en">📄 Practice & Registration PDF</span>
+                    <span class="ja">📄 受付・練習日程PDF</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="details">
+
+        <!-- Japan Team Highlight Summary -->
+        <section class="card glass" style="border-left: 4px solid #ff9800;">
+            <h2 style="color: #ffb74d;">
+                <span class="en">🇯🇵 Japan Men (ME JPN) Schedule Highlight</span>
+                <span class="ja">🇯🇵 日本男子代表 (ME JPN) 試合・全日程まとめ</span>
+            </h2>
+            <p style="margin-bottom: 1.5rem; opacity: 0.9;">
+                <span class="en">Quick summary of all matches and official practice sessions for Japan Men's team.</span>
+                <span class="ja">日本男子代表チームの公式練習、受付、予選ラウンド全6試合および決勝スケジュールの一覧です。</span>
+            </p>
+
+            <div class="timeline-card">
+                <div style="font-weight: bold; color: var(--primary-cyan); font-size: 1.05rem;">
+                    <span class="en">Aug 4 (Tue) - Practice & Registration</span>
+                    <span class="ja">8月4日(火) - 公式練習 & 受付</span>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.95rem;">
+                    ・<strong>09:00 AM - 09:45 AM</strong> : <span class="court-badge court-2">Court 2</span> 公式練習 (Allocated Practice)<br>
+                    ・<strong>16:00 PM - 16:30 PM</strong> : プールサイド受付・ギアチェック (Registration & ID Issue)
+                </div>
+            </div>
+
+            <div class="timeline-card jp-match">
+                <div style="font-weight: bold; color: #ffb74d; font-size: 1.05rem;">
+                    <span class="en">Aug 5 (Wed) - Day 1</span>
+                    <span class="ja">8月5日(水) - 予選 Day 1</span>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.95rem;">
+                    ・<strong>14:42 PM</strong> [Game 3 / <span class="court-badge court-1">Court 1</span>] : ME INA (インドネシア) vs <strong class="team-jp">ME JPN (日本)</strong>
+                </div>
+            </div>
+
+            <div class="timeline-card jp-match">
+                <div style="font-weight: bold; color: #ffb74d; font-size: 1.05rem;">
+                    <span class="en">Aug 6 (Thu) - Day 2 (3 Matches)</span>
+                    <span class="ja">8月6日(木) - 予選 Day 2（3試合）</span>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.95rem;">
+                    ・<strong>07:30 AM</strong> [Game 14 / <span class="court-badge court-2">Court 2</span>] : <strong class="team-jp">ME JPN (日本)</strong> vs ME PHI (フィリピン)<br>
+                    ・<strong>10:54 AM</strong> [Game 26 / <span class="court-badge court-2">Court 2</span>] : ME SGP (シンガポール) vs <strong class="team-jp">ME JPN (日本)</strong><br>
+                    ・<strong>14:30 PM</strong> [Game 37 / <span class="court-badge court-1">Court 1</span>] : <strong class="team-jp">ME JPN (日本)</strong> vs ME INA (インドネシア)
+                </div>
+            </div>
+
+            <div class="timeline-card jp-match">
+                <div style="font-weight: bold; color: #ffb74d; font-size: 1.05rem;">
+                    <span class="en">Aug 7 (Fri) - Day 3 (2 Matches)</span>
+                    <span class="ja">8月7日(金) - 予選 Day 3（2試合）</span>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.95rem;">
+                    ・<strong>10:42 AM</strong> [Game 59 / <span class="court-badge court-1">Court 1</span>] : <strong class="team-jp">ME JPN (日本)</strong> vs ME SGP (シンガポール)<br>
+                    ・<strong>14:06 PM</strong> [Game 71 / <span class="court-badge court-1">Court 1</span>] : ME PHI (フィリピン) vs <strong class="team-jp">ME JPN (日本)</strong>
+                </div>
+            </div>
+
+            <div class="timeline-card jp-match" style="border-left-color: #00e676;">
+                <div style="font-weight: bold; color: #00e676; font-size: 1.05rem;">
+                    <span class="en">Aug 8 (Sat) - Day 4 (Playoffs & Finals)</span>
+                    <span class="ja">8月8日(土) - プレーオフ & 決勝戦</span>
+                </div>
+                <div style="margin-top: 0.5rem; font-size: 0.95rem;">
+                    ・<strong>08:50 AM / 09:40 AM</strong> [Game 85/87 / <span class="court-badge court-1">Court 1</span>] : 準決勝 (Semi-Finals)<br>
+                    ・<strong>13:00 PM</strong> [Game 96 / <span class="court-badge court-2">Court 2</span>] : 3位決定戦 (3rd v 4th)<br>
+                    ・<strong>14:40 PM</strong> [Game 99 / <span class="court-badge court-1">Court 1</span>] : <strong>決勝戦 (Final)</strong><br>
+                    ・<strong>16:30 PM</strong> : 表彰式・閉会式 (Medal & Closing Ceremony)
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice & Registration Schedule Table -->
+        <section class="card glass">
+            <h2>
+                <span class="en">Official Practice & Registration Schedule (Aug 4-5)</span>
+                <span class="ja">公式練習 & 受付・ギアチェック日程表 (8/4〜8/5)</span>
+            </h2>
+            
+            <h3 style="color: var(--primary-cyan); margin-top: 1rem;">
+                <span class="en">Allocated Practice Times - Aug 4 (Tue)</span>
+                <span class="ja">公式練習スケジュール - 8月4日(火)</span>
+            </h3>
+
+            <div class="table-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>時間</th>
+                            <th>Court 1 (Dive Well End)</th>
+                            <th>Court 2 (Far End)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-jp">
+                            <td>09:00 AM</td>
+                            <td>ME PHI</td>
+                            <td><strong>ME JPN (日本男子) 🇯🇵</strong></td>
+                        </tr>
+                        <tr>
+                            <td>09:45 AM</td>
+                            <td>WE PHI</td>
+                            <td>U15 Sea Ria</td>
+                        </tr>
+                        <tr>
+                            <td>10:30 AM</td>
+                            <td>U19 Malaysia A</td>
+                            <td>U19 Malaysia B</td>
+                        </tr>
+                        <tr>
+                            <td>11:15 AM</td>
+                            <td>U15 Malaysia A</td>
+                            <td>U15 Malaysia B</td>
+                        </tr>
+                        <tr>
+                            <td>12:00 PM</td>
+                            <td>U15 Bubble A</td>
+                            <td>U15 Bubble B</td>
+                        </tr>
+                        <tr>
+                            <td>12:45 PM</td>
+                            <td>U19 Singapore</td>
+                            <td>U19 Bubble</td>
+                        </tr>
+                        <tr>
+                            <td>01:30 PM</td>
+                            <td>ME SGP</td>
+                            <td>WE SGP</td>
+                        </tr>
+                        <tr>
+                            <td>02:15 PM</td>
+                            <td>ME INA</td>
+                            <td>WE INA</td>
+                        </tr>
+                        <tr>
+                            <td>03:00 PM</td>
+                            <td>U19 Beijing</td>
+                            <td>Referee Fitness Test</td>
+                        </tr>
+                        <tr>
+                            <td>03:45 PM</td>
+                            <td>U15 Beijing A</td>
+                            <td>U19 Bhinneka</td>
+                        </tr>
+                        <tr>
+                            <td>04:30 PM</td>
+                            <td>U19 Cucut</td>
+                            <td>U15 Cucut</td>
+                        </tr>
+                        <tr>
+                            <td>05:15 PM</td>
+                            <td>U19 Thailand</td>
+                            <td>U15 Thailand</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="color: var(--primary-cyan); margin-top: 1.5rem;">
+                <span class="en">Registration & Gear Check Schedule</span>
+                <span class="ja">受付・ギアチェック・ID発行 スケジュール</span>
+            </h3>
+
+            <div class="table-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>日程・時間</th>
+                            <th>対象チーム</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-jp">
+                            <td><strong>8月4日(火) 16:00 - 16:30</strong></td>
+                            <td><strong>ME INA / ME JPN (日本男子) 🇯🇵 / ME PHI / ME SGP</strong></td>
+                        </tr>
+                        <tr>
+                            <td>8月4日(火) 16:30 - 17:00</td>
+                            <td>WE INA / WE PHI / WE SGP</td>
+                        </tr>
+                        <tr>
+                            <td>8月4日(火) 17:00 - 17:30</td>
+                            <td>U19 Beijing / U15 Beijing A / U15 Sea Ria / U19 Singapore</td>
+                        </tr>
+                        <tr>
+                            <td>8月5日(水) 09:00 - 09:30</td>
+                            <td>U15 Bubble B / U19 Bhinneka / U19 Bubble / U15 Bubble A</td>
+                        </tr>
+                        <tr>
+                            <td>8月5日(水) 09:30 - 10:00</td>
+                            <td>U19 Malaysia A / U15 Malaysia A / U19 Cucut / U19 Thailand</td>
+                        </tr>
+                        <tr>
+                            <td>8月5日(水) 10:00 - 10:30</td>
+                            <td>U19 Malaysia B / U15 Malaysia B / U15 Cucut / U15 Thailand</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Full Tournament Match Draw Tables -->
+        <section class="card glass">
+            <h2>
+                <span class="en">Tournament Match Schedule (Aug 5 - 8)</span>
+                <span class="ja">対戦スケジュール・全試合表 (8/5〜8/8)</span>
+            </h2>
+
+            <!-- Day 1 -->
+            <h3 style="color: var(--primary-cyan); margin-top: 1.2rem;">
+                <span class="en">Day 1 - Wednesday, August 5th</span>
+                <span class="ja">1日目 - 8月5日(水) 試合日程</span>
+            </h3>
+            <div class="table-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>時間</th>
+                            <th>No.</th>
+                            <th>Court 1 (Dive Pool End)</th>
+                            <th>No.</th>
+                            <th>Court 2 (Far End)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>14:00</td>
+                            <td>1</td>
+                            <td>WE INA vs WE PHI</td>
+                            <td>2</td>
+                            <td>U15 Beijing A vs U15 Bubble A</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>14:42</td>
+                            <td>3</td>
+                            <td>ME INA vs <strong>ME JPN (日本男子) 🇯🇵</strong></td>
+                            <td>4</td>
+                            <td>U15 Malaysia A vs U15 Malaysia B</td>
+                        </tr>
+                        <tr>
+                            <td>15:24</td>
+                            <td>5</td>
+                            <td>ME PHI vs ME SGP</td>
+                            <td>6</td>
+                            <td>U15 Bubble B vs U15 Cucut</td>
+                        </tr>
+                        <tr>
+                            <td>16:06</td>
+                            <td>7</td>
+                            <td>U19 Beijing vs U19 Bhinneka</td>
+                            <td>8</td>
+                            <td>U15 Sea Ria vs U15 Thailand</td>
+                        </tr>
+                        <tr>
+                            <td>16:36</td>
+                            <td>9</td>
+                            <td>U19 Malaysia A vs U19 Malaysia B</td>
+                            <td>10</td>
+                            <td>U19 Bubble vs U19 Cucut</td>
+                        </tr>
+                        <tr>
+                            <td>17:06</td>
+                            <td>11</td>
+                            <td>WE INA vs WE SGP</td>
+                            <td>12</td>
+                            <td>U19 Singapore vs U19 Thailand</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Day 2 -->
+            <h3 style="color: var(--primary-cyan); margin-top: 1.8rem;">
+                <span class="en">Day 2 - Thursday, August 6th</span>
+                <span class="ja">2日目 - 8月6日(木) 試合日程</span>
+            </h3>
+            <div class="table-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>時間</th>
+                            <th>No.</th>
+                            <th>Court 1 (Dive Pool End)</th>
+                            <th>No.</th>
+                            <th>Court 2 (Far End)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-jp">
+                            <td>07:30</td>
+                            <td>13</td>
+                            <td>WE PHI vs WE SGP</td>
+                            <td>14</td>
+                            <td><strong>ME JPN (日本男子) 🇯🇵</strong> vs ME PHI</td>
+                        </tr>
+                        <tr>
+                            <td>08:12</td>
+                            <td>15</td>
+                            <td>ME SGP vs ME INA</td>
+                            <td>16</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>08:54</td>
+                            <td>17</td>
+                            <td>U15 Beijing A vs U15 Bubble B</td>
+                            <td>18</td>
+                            <td>U15 Cucut vs U15 Bubble A</td>
+                        </tr>
+                        <tr>
+                            <td>09:24</td>
+                            <td>19</td>
+                            <td>U15 Malaysia B vs U15 Sea Ria</td>
+                            <td>20</td>
+                            <td>U15 Thailand vs U15 Malaysia A</td>
+                        </tr>
+                        <tr>
+                            <td>09:54</td>
+                            <td>21</td>
+                            <td>U19 Malaysia B vs U19 Singapore</td>
+                            <td>22</td>
+                            <td>U19 Thailand vs U19 Malaysia A</td>
+                        </tr>
+                        <tr>
+                            <td>10:24</td>
+                            <td>23</td>
+                            <td>U19 Cucut vs U19 Bhinneka</td>
+                            <td>24</td>
+                            <td>U19 Beijing vs U19 Bubble</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>10:54</td>
+                            <td>25</td>
+                            <td>WE INA vs WE PHI</td>
+                            <td>26</td>
+                            <td>ME SGP vs <strong>ME JPN (日本男子) 🇯🇵</strong></td>
+                        </tr>
+                        <tr>
+                            <td>11:36</td>
+                            <td>27</td>
+                            <td>ME INA vs ME PHI</td>
+                            <td>28</td>
+                            <td>U15 Beijing A vs U15 Cucut</td>
+                        </tr>
+                        <tr>
+                            <td>12:18</td>
+                            <td>29</td>
+                            <td>U15 Malaysia A vs U15 Sea Ria</td>
+                            <td>30</td>
+                            <td>U15 Bubble B vs U15 Bubble A</td>
+                        </tr>
+                        <tr>
+                            <td>12:48</td>
+                            <td>31</td>
+                            <td>U15 Malaysia B vs U15 Thailand</td>
+                            <td>32</td>
+                            <td>U19 Bhinneka vs U19 Malaysia B</td>
+                        </tr>
+                        <tr>
+                            <td>13:18</td>
+                            <td>33</td>
+                            <td>U19 Thailand vs U19 Bubble</td>
+                            <td>34</td>
+                            <td>U19 Cucut vs U19 Malaysia A</td>
+                        </tr>
+                        <tr>
+                            <td>13:48</td>
+                            <td>35</td>
+                            <td>WE INA vs WE SGP</td>
+                            <td>36</td>
+                            <td>U19 Singapore vs U19 Beijing</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>14:30</td>
+                            <td>37</td>
+                            <td><strong>ME JPN (日本男子) 🇯🇵</strong> vs ME INA</td>
+                            <td>38</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>15:12</td>
+                            <td>39</td>
+                            <td>U15 Malaysia A vs U15 Beijing A</td>
+                            <td>40</td>
+                            <td>ME SGP vs ME PHI</td>
+                        </tr>
+                        <tr>
+                            <td>15:42</td>
+                            <td>41</td>
+                            <td>U15 Bubble A vs U15 Thailand</td>
+                            <td>42</td>
+                            <td>U15 Bubble B vs U15 Malaysia B</td>
+                        </tr>
+                        <tr>
+                            <td>16:12</td>
+                            <td>43</td>
+                            <td>U19 Bhinneka vs U19 Malaysia A</td>
+                            <td>44</td>
+                            <td>U15 Sea Ria vs U15 Cucut</td>
+                        </tr>
+                        <tr>
+                            <td>16:42</td>
+                            <td>45</td>
+                            <td>U19 Singapore vs U19 Bubble</td>
+                            <td>46</td>
+                            <td>U19 Malaysia B vs U19 Beijing</td>
+                        </tr>
+                        <tr>
+                            <td>17:12</td>
+                            <td>47</td>
+                            <td>WE PHI vs WE SGP</td>
+                            <td>48</td>
+                            <td>U19 Cucut vs U19 Thailand</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Day 3 -->
+            <h3 style="color: var(--primary-cyan); margin-top: 1.8rem;">
+                <span class="en">Day 3 - Friday, August 7th</span>
+                <span class="ja">3日目 - 8月7日(金) 試合日程</span>
+            </h3>
+            <div class="table-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>時間</th>
+                            <th>No.</th>
+                            <th>Court 1 (Dive Pool End)</th>
+                            <th>No.</th>
+                            <th>Court 2 (Far End)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>08:00</td>
+                            <td>49</td>
+                            <td>U15 Sea Ria vs U15 Bubble B</td>
+                            <td>50</td>
+                            <td>U15 Malaysia B vs U15 Beijing A</td>
+                        </tr>
+                        <tr>
+                            <td>08:30</td>
+                            <td>51</td>
+                            <td>U15 Cucut vs U15 Thailand</td>
+                            <td>52</td>
+                            <td>U15 Bubble A vs U15 Malaysia A</td>
+                        </tr>
+                        <tr>
+                            <td>09:00</td>
+                            <td>53</td>
+                            <td>WE INA vs WE SGP</td>
+                            <td>54</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>09:42</td>
+                            <td>55</td>
+                            <td>U19 Malaysia A vs U19 Singapore</td>
+                            <td>56</td>
+                            <td>U19 Bubble vs U19 Bhinneka</td>
+                        </tr>
+                        <tr>
+                            <td>10:12</td>
+                            <td>57</td>
+                            <td>U19 Beijing vs U19 Cucut</td>
+                            <td>58</td>
+                            <td>U19 Malaysia B vs U19 Thailand</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>10:42</td>
+                            <td>59</td>
+                            <td><strong>ME JPN (日本男子) 🇯🇵</strong> vs ME SGP</td>
+                            <td>60</td>
+                            <td>ME PHI vs ME INA</td>
+                        </tr>
+                        <tr>
+                            <td>11:24</td>
+                            <td>61</td>
+                            <td>U15 Bubble A vs U15 Malaysia B</td>
+                            <td>62</td>
+                            <td>U15 Sea Ria vs U15 Beijing A</td>
+                        </tr>
+                        <tr>
+                            <td>11:54</td>
+                            <td>63</td>
+                            <td>U15 Thailand vs U15 Bubble B</td>
+                            <td>64</td>
+                            <td>U15 Cucut vs U15 Malaysia A</td>
+                        </tr>
+                        <tr>
+                            <td>12:24</td>
+                            <td>65</td>
+                            <td>WE INA vs WE PHI</td>
+                            <td>66</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>13:06</td>
+                            <td>67</td>
+                            <td>U19 Singapore vs U19 Cucut</td>
+                            <td>68</td>
+                            <td>U19 Bubble vs U19 Malaysia B</td>
+                        </tr>
+                        <tr>
+                            <td>13:36</td>
+                            <td>69</td>
+                            <td>U19 Malaysia A vs U19 Beijing</td>
+                            <td>70</td>
+                            <td>U19 Bhinneka vs U19 Thailand</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>14:06</td>
+                            <td>71</td>
+                            <td>ME PHI vs <strong>ME JPN (日本男子) 🇯🇵</strong></td>
+                            <td>72</td>
+                            <td>ME INA vs ME SGP</td>
+                        </tr>
+                        <tr>
+                            <td>14:48</td>
+                            <td>73</td>
+                            <td>U15 Bubble B vs U15 Malaysia A</td>
+                            <td>74</td>
+                            <td>U15 Thailand vs U15 Beijing A</td>
+                        </tr>
+                        <tr>
+                            <td>15:18</td>
+                            <td>75</td>
+                            <td>U15 Bubble A vs U15 Sea Ria</td>
+                            <td>76</td>
+                            <td>U15 Cucut vs U15 Malaysia B</td>
+                        </tr>
+                        <tr>
+                            <td>15:48</td>
+                            <td>77</td>
+                            <td>U19 Cucut vs U19 Malaysia B</td>
+                            <td>78</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>16:18</td>
+                            <td>79</td>
+                            <td>U19 Bubble vs U19 Malaysia A</td>
+                            <td>80</td>
+                            <td>U19 Bhinneka vs U19 Singapore</td>
+                        </tr>
+                        <tr>
+                            <td>16:48</td>
+                            <td>81</td>
+                            <td>WE PHI vs WE SGP</td>
+                            <td>82</td>
+                            <td>U19 Thailand vs U19 Beijing</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Day 4 -->
+            <h3 style="color: var(--primary-cyan); margin-top: 1.8rem;">
+                <span class="en">Day 4 - Saturday, August 8th (Playoffs & Finals)</span>
+                <span class="ja">4日目 - 8月8日(土) 順位決定戦 & 決勝トーナメント</span>
+            </h3>
+            <div class="table-container">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>時間</th>
+                            <th>No.</th>
+                            <th>Court 1 (Dive Pool End)</th>
+                            <th>No.</th>
+                            <th>Court 2 (Far End)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>08:00</td>
+                            <td>83</td>
+                            <td>WE Seed 2 vs WE Seed 3 (Semi)</td>
+                            <td>84</td>
+                            <td>U15 Seed 7 vs U15 Seed 8 (7v8)</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>08:50</td>
+                            <td>85</td>
+                            <td><strong>ME Seed 1 vs ME Seed 4 (ME Semi 1)</strong></td>
+                            <td>86</td>
+                            <td>U15 Seed 5 vs U15 Seed 6 (5v6)</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>09:40</td>
+                            <td>87</td>
+                            <td><strong>ME Seed 2 vs ME Seed 3 (ME Semi 2)</strong></td>
+                            <td>88</td>
+                            <td>U19 Seed 7 vs U19 Seed 8 (7v8)</td>
+                        </tr>
+                        <tr>
+                            <td>10:30</td>
+                            <td>89</td>
+                            <td>U15 Seed 3 vs U15 Seed 4 (3v4)</td>
+                            <td>90</td>
+                            <td>U19 Seed 5 vs U19 Seed 6 (5v6)</td>
+                        </tr>
+                        <tr>
+                            <td>11:20</td>
+                            <td>91</td>
+                            <td>U19 Seed 3 vs U19 Seed 4 (3v4)</td>
+                            <td>92</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>12:10</td>
+                            <td>93</td>
+                            <td>U15 Seed 1 vs U15 Seed 2 (U15 Final)</td>
+                            <td>94</td>
+                            <td>-</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>13:00</td>
+                            <td>95</td>
+                            <td>U19 Seed 1 vs U19 Seed 2 (U19 Final)</td>
+                            <td>96</td>
+                            <td><strong>Loser Game 85 vs Loser Game 87 (ME 3位決定戦)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>13:50</td>
+                            <td>97</td>
+                            <td>WE Seed 1 vs Winner Game 83 (WE Final)</td>
+                            <td>98</td>
+                            <td>-</td>
+                        </tr>
+                        <tr class="highlight-jp">
+                            <td>14:40</td>
+                            <td>99</td>
+                            <td><strong>Winner Game 85 vs Winner Game 87 (ME 決勝戦 Final)</strong></td>
+                            <td>100</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Back to Top / Links -->
+        <div style="text-align: center; margin-top: 3rem; margin-bottom: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="briefing.html" class="btn-primary" style="padding: 0.8rem 1.8rem; font-size: 1rem; background: linear-gradient(135deg, #ff9800, #e65100); border: none; color: white;">
+                <span class="en">Captains Briefing</span>
+                <span class="ja">監督・主将ブリーフィング要約</span>
+            </a>
+            <a href="index.html" class="btn-primary" style="padding: 0.8rem 1.8rem; font-size: 1rem; background: linear-gradient(135deg, #00e5ff, #0081cb); border: none; color: #000; font-weight: bold;">
+                <span class="en">Back to Main Hub</span>
+                <span class="ja">メインハブ（トップページ）へ戻る</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Japan Underwater Hockey Committee. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
